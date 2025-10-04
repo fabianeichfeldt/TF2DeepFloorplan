@@ -29,3 +29,7 @@ skip=[".tox",".nox","venv","build","dist","resources","model","log"]
 skip_glob=["venv/*","build/*","dist/*","resources/*"]
 sections="FUTURE,STDLIB,SETUPTOOLS,TEST,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
 known_first_party = "src"
+
+[tool.setuptools_scm]
+version_scheme = "guess-next-dev"
+local_scheme = "node-and-date"

@@ -58,10 +58,10 @@ def dummy():
     args.image = finname
     args.postprocess = postprocess
     args.colorize = colorize
+    args.loadmethod = "log"
     args.save = os.path.join(output, foutname)
     app.logger.info(args)
-    with mp.Pool() as pool:
-        result = pool.map(main, [args])[0]
+    result = main(args)
 
     app.logger.info(f"Output Image shape: {np.array(result).shape}")
     if args.save:
@@ -108,15 +108,18 @@ def process_image():
         except Exception:
             return {"message": "input error"}, 400
 
-    args.image = finname
+    args.image = "./resources/123.jpg" #finname
     args.postprocess = postprocess
     args.colorize = colorize
+    args.loadmethod = "log"
     args.save = os.path.join(output, foutname)
     app.logger.info(args)
 
-    with mp.Pool() as pool:
-        result = pool.map(main, [args])[0]
-
+    try:
+        result = main(args)
+    except Exception as e:
+        app.logger.error(f"Error during processing {e}", exc_info=True)
+        return {"message": "process error"}, 400
     app.logger.info(f"Output Image shape: {np.array(result).shape}")
 
     if args.save:
