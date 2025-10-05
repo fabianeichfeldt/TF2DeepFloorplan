@@ -18,18 +18,20 @@ floorplan_room_map = {
 # boundary label
 floorplan_boundary_map = {
     0: [0, 0, 0],  # background
-    1: [255, 60, 128],  # opening (door&window)
+    1: [0, 60, 128],  # opening (door&window)
     2: [255, 255, 255],  # wall line
 }
 
 # boundary label for presentation
 floorplan_boundary_map_figure = {
     0: [255, 255, 255],  # background
-    1: [255, 60, 128],  # opening (door&window)
+    1: [0, 60, 128],  # opening (door&window)
     2: [0, 0, 0],  # wall line
 }
 
 # merge all label into one multi-class label
+# rgb(255,160,96)
+# rgb(50,0,128)
 floorplan_fuse_map = {
     0: [0, 0, 0],  # background
     1: [192, 192, 224],  # closet
@@ -40,7 +42,7 @@ floorplan_fuse_map = {
     6: [255, 224, 224],  # balcony
     7: [224, 224, 224],  # not used
     8: [224, 224, 128],  # not used
-    9: [255, 60, 128],  # extra label for opening (door&window)
+    9: [50, 0, 128],  # extra label for opening (door&window)
     10: [255, 255, 255],  # extra label for wall line
 }
 
